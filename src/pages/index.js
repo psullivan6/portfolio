@@ -53,7 +53,11 @@ const IndexPage = () => {
       >
         {
           items.map((item, index) => (
-            <Panel key={`${index}-${item.letter}`} image={item.image}>
+            <Panel
+              key={`${index}-${item.letter}`}
+              image={item.image}
+              to="/projects/one"
+            >
               {item.letter}
             </Panel>
           ))

@@ -9,6 +9,9 @@ import React, { Fragment, useState } from "react"
 import PropTypes from "prop-types"
 import { ThemeProvider } from 'styled-components';
 
+// Components
+import Box from '../components/Box';
+
 // Styles
 import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
@@ -25,8 +28,16 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme[themeSelection]}>
       <Fragment>
         <GlobalStyle />
-        <button onClick={handleClick}>CHANGE THEME</button>
         {children}
+
+        <Box
+          as="footer"
+          display="flex"
+          justifyContent="center"
+          padding={2}
+        >
+          <button onClick={handleClick}>CHANGE THEME</button>
+        </Box>
       </Fragment>
     </ThemeProvider>
   )

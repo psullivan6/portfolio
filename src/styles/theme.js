@@ -22,7 +22,8 @@ const theme = {
     space,
   },
   space: {
-    text: '#fff',
+    text: '#ffc',
+    textSelection: '#90f',
     background: '#1a1a1a',
     breakpoints,
     fontSizes,
