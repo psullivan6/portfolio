@@ -1,4 +1,4 @@
-const fontSizes = [12, 16, 21, 24, 30, 36];
+const fontSizes = [12, 16, 21, 24, 36, 60, 90, '15vw'];
 const space = [0, 6, 12, 24, 36, 48, 120];
 
 const theme = {

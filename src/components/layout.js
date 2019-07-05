@@ -15,7 +15,7 @@ import GlobalStyle from '../styles/global';
 import theme from '../styles/theme';
 
 const Layout = ({ children }) => {
-  const [themeSelection, setThemeSelection] = useState('firetruck');
+  const [themeSelection, setThemeSelection] = useState('space');
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -37,8 +37,8 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme[themeSelection]}>
       <Fragment>
         <GlobalStyle />
-        <button onClick={handleClick}>CHANGE THEME</button>
-        <main>{children}</main>
+        {/* <button onClick={handleClick}>CHANGE THEME</button> */}
+        {children}
       </Fragment>
     </ThemeProvider>
   )

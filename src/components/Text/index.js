@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { color, shadow, space, typography } from 'styled-system';
 
-const Box = styled.div`
+const Box = styled.span`
   ${color};
   ${shadow};
   ${space};

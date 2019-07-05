@@ -1,48 +1,29 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react'
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import Box from '../components/Box';
 import Text from '../components/Text';
+import Panel from '../components/Panel';
+
+const items = 'Patrick Sullivan'.split('').map(item => ({ letter: item, image: `https://source.unsplash.com/random?${item}` }))
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <Text
-      as="p"
-      fontSize={1}
+    <Box
+      as="main"
+      display="flex"
+      height="100%"
     >
-      Paragraph (1)
-    </Text>
-    <Text
-      as="p"
-      fontSize={2}
-    >
-      Paragraph (2)
-    </Text>
-    <Text
-      as="p"
-      fontSize={3}
-    >
-      Paragraph (3)
-    </Text>
-    <Text
-      as="p"
-      fontSize={4}
-    >
-      Paragraph (4)
-    </Text>
-    <Text
-      as="h1"
-      fontSize={5}
-    >
-      Paragraph (5)
-    </Text>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+      {
+        items.map((item, index) => (
+          <Panel key={`${index}-${item.letter}`} image={item.image}>
+            {item.letter}
+          </Panel>
+        ))
+      }
+    </Box>
   </Layout>
 )
 
