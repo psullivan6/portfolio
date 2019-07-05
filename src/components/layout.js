@@ -7,7 +7,6 @@
 
 import React, { Fragment, useState } from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
 import { ThemeProvider } from 'styled-components';
 
 // Styles
@@ -16,15 +15,6 @@ import theme from '../styles/theme';
 
 const Layout = ({ children }) => {
   const [themeSelection, setThemeSelection] = useState('space');
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
 
   const handleClick = () => {
     const themeChoice = (themeSelection === 'firetruck') ? 'space' : 'firetruck';

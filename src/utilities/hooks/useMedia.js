@@ -4,12 +4,22 @@ import { ThemeContext } from 'styled-components';
 // Utilities
 import remapValues from '../remapValues';
 
+const agnosticMatchMedia = (query) => {
+  if (typeof window === 'undefined') {
+    return {
+      matches: false
+    };
+  }
+
+  return window.matchMedia(query);
+};
+
 const useMedia = () => {
   const { queries } = useContext(ThemeContext);
-  const matchMediaList = Object.values(queries).map(value => window.matchMedia(value));
+  const matchMediaList = Object.values(queries).map(value => agnosticMatchMedia(value));
 
   const [breakpointBooleans, setBreakpointBooleans] = useState({
-    ...remapValues(queries, query => window.matchMedia(query).matches)
+    ...remapValues(queries, query => agnosticMatchMedia(query).matches)
   });
 
   const getQueryName = (query) => {

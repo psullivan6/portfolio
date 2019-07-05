@@ -1,8 +1,6 @@
 import { normalize } from 'styled-normalize'
 import { createGlobalStyle } from 'styled-components';
 
-console.log('normalize', normalize);
-
 const GlobalStyle = createGlobalStyle`
   ${normalize}
 
