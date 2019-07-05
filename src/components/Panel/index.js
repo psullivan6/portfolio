@@ -1,7 +1,6 @@
 import React from 'react';
 
 // Components
-import Box from '../Box';
 import Text from '../Text';
 
 // Styles
@@ -10,7 +9,7 @@ import { StyledPanel } from './styles';
 
 const Panel = ({ children, image }) => (
   <StyledPanel
-    flex="1"
+    flex={1}
     display="flex"
     alignItems="center"
     justifyContent="center"
@@ -20,9 +19,10 @@ const Panel = ({ children, image }) => (
     <Text
       display="block"
       textAlign="center"
-      fontSize={6}
+      fontSize={{ zero: 7, large: 6 }}
+      lineHeight={1}
+      dangerouslySetInnerHTML={{ __html: children }}
     >
-      {children}
     </Text>
   </StyledPanel>
 );

@@ -14,6 +14,12 @@ export const StyledPanel = styled(Box)`
     color: #ffc;
     background-image: url(${props => props.bgImg});
     transition: flex 0.6s ease, background 0.6s ease;
+
+    span {
+      mix-blend-mode: difference;
+      color: transparent;
+      -webkit-text-stroke: 4px white;
+    }
   }
 `;
 

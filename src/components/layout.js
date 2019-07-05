@@ -16,17 +16,15 @@ import theme from '../styles/theme';
 
 const Layout = ({ children }) => {
   const [themeSelection, setThemeSelection] = useState('space');
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  console.log('data', data);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `)
 
   const handleClick = () => {
     const themeChoice = (themeSelection === 'firetruck') ? 'space' : 'firetruck';
@@ -37,7 +35,7 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme[themeSelection]}>
       <Fragment>
         <GlobalStyle />
-        {/* <button onClick={handleClick}>CHANGE THEME</button> */}
+        <button onClick={handleClick}>CHANGE THEME</button>
         {children}
       </Fragment>
     </ThemeProvider>
