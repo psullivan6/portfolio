@@ -16,15 +16,21 @@ const theme = {
   firetruck: {
     text: '#ffc',
     background: '#f33',
+    colors: {
+      text: '#ffc',
+      background: '#f33',
+    },
     breakpoints,
     fontSizes,
     queries,
     space,
   },
   space: {
-    text: '#ffc',
-    textSelection: '#90f',
-    background: '#1a1a1a',
+    colors: {
+      text: '#ffc',
+      textSelection: '#90f',
+      background: '#1a1a1a',
+    },
     breakpoints,
     fontSizes,
     queries,

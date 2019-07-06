@@ -1,7 +1,22 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const axios = require('axios');
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ actions: { createPage } }) => {
+  const response = await axios.get('https://psullivan6.github.io/api/data.json');
+  const data = response.data;
+
+  // Create a page that lists all Pokémon.
+  createPage({
+    path: `/`,
+    component: require.resolve('./src/templates/index.js'),
+    context: { data }
+  });
+
+  // Create a page for each Pokémon.
+  data.projects.forEach(project => {
+    createPage({
+      path: `/detail/${project.letter}/`,
+      component: require.resolve('./src/templates/detail.js'),
+      context: { project }
+    });
+  });
+};

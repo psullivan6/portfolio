@@ -14,7 +14,10 @@ const GlobalStyle = createGlobalStyle`
 
   html,
   body,
-  #___gatsby {
+  #___gatsby,
+  #gatsby-focus-wrapper,
+  .tl-edges,
+  .tl-wrapper {
     width: 100%;
     height: 100%;
   }
@@ -24,20 +27,19 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-style: normal;
 
-    color: ${props => props.theme.text};
-    background-color: ${props => props.theme.background};
+    color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.background};
 
     *::selection {
-      background: ${props => props.theme.textSelection};
+      background: ${props => props.theme.colors.textSelection};
     }
 
     *::-moz-selection {
-      background: ${props => props.theme.textSelection};
+      background: ${props => props.theme.colors.textSelection};
     }
   }
 
-  #___gatsby div {
-    height: inherit;
+  .tl-wrapper {
     display: flex;
     flex-direction: column;
   }
