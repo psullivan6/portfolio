@@ -4,7 +4,7 @@ import { Back, TweenMax } from 'gsap';
 // import TransitionLink from 'gatsby-plugin-transition-link';
 
 // Styles
-import { StyledPanelLink, StyledText } from './styles';
+import { Background, StyledPanelLink, StyledText } from './styles';
 
 const PanelLink = ({ active = false, children, ...props }) => {
   const [isActive, setIsActive] = useState(active);
@@ -24,6 +24,7 @@ const PanelLink = ({ active = false, children, ...props }) => {
       exit.length,
       {
         position: 'absolute',
+        zIndex: 2,
         left,
         width,
       },
@@ -40,13 +41,12 @@ const PanelLink = ({ active = false, children, ...props }) => {
       {...props}
       innerRef={root}
       isActive={isActive}
-      bgImg={props.data.poster}
       exit={{
         trigger: handleExit,
-        length: 0.5
+        length: 0.3
       }}
       entry={{
-        delay: 0.4,
+        delay: 0.2,
         // length: 0.3,
         trigger: ({ entry, node }) => {
           // TweenMax.from(node, entry.length, {
@@ -65,6 +65,13 @@ const PanelLink = ({ active = false, children, ...props }) => {
         color="text"
         dangerouslySetInnerHTML={{ __html: children }}
       />
+      {
+        props.data && (
+          <Background
+            image={props.data.poster}
+          />
+        )
+      }
     </StyledPanelLink>
   );
 };

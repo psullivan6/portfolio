@@ -25,16 +25,24 @@ const IndexPage = ({ pageContext: { data: pageData } }) => {
         height="100%"
       >
         {
-          panels.map((panel, index) => (
-            <PanelLink
-              as={TransitionLink}
-              key={`${index}-${panel}`}
-              data={projects.find(item => item.letter === panel)}
-              to={`/detail/${panel}`}
-            >
-              {panel}
-            </PanelLink>
-          ))
+          panels.map((panel, index) => {
+            const panelProps = (panel.match(/[a-zA-Z]{1}$/))
+              ? {
+                data: projects.find(item => item.letter === panel)
+              }
+              : { inactive: true }
+
+            return (
+              <PanelLink
+                {...panelProps}
+                as={TransitionLink}
+                key={`${index}-${panel}`}
+                to={`/detail/${panel}`}
+              >
+                {panel}
+              </PanelLink>
+            );
+          })
         }
       </Box>
     </Fragment>

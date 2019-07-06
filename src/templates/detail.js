@@ -7,7 +7,6 @@ import Box from '../components/Box';
 import { StyledPanel, StyledText } from '../components/PanelLink/styles';
 
 const DetailPage = ({ pageContext: { project } }) => {
-  console.log('project', project);
   return (
     <Layout>
       <SEO title="Detail Page" />
